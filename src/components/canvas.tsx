@@ -16,8 +16,6 @@ const shoeGlbPath = "/shoe.glb";
 export const CanvasPage = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  /* <div className="relative h-screen w-full" id="root" ref={ref}> */
-  /* </div> */
   return (
     <Canvas
       camera={{ position: [0, 0, 4], fov: 40 }}
@@ -76,6 +74,7 @@ function Selector({ children }: { children: ReactNode }) {
       delta
     );
   });
+
   return (
     <>
       <mesh ref={ref}>
@@ -84,8 +83,8 @@ function Selector({ children }: { children: ReactNode }) {
           anisotropy={1}
           distortionScale={0}
           resolution={512}
-          roughness={0.4}
-          samples={16}
+          roughness={0.3}
+          samples={1}
           temporalDistortion={0}
           thickness={0.1}
           toneMapped={true}
@@ -133,6 +132,13 @@ function Shoe(props: any) {
       <mesh castShadow receiveShadow {...props}>
         <primitive object={shoe.scene} />
       </mesh>
+      {/* <mesh */}
+      {/*   castShadow */}
+      {/*   receiveShadow */}
+      {/*   geometry={shoe.nodes.defaultMaterial.geometry} */}
+      {/*   material={shoe.materials.NikeShoe} */}
+      {/*   {...props} */}
+      {/* /> */}
     </group>
   );
 }
