@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 
 import { QueryProvider } from "@/providers/react-query";
 import { Toaster } from "@/components/toaster";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryProvider>
-          <main
-            className={cn(
-              "mx-auto my-10 w-full max-w-4xl px-4",
-              inter.className
-            )}
-          >
-            {children}
-            <Toaster />
-          </main>
+          {children}
+          <Toaster />
         </QueryProvider>
       </body>
     </html>

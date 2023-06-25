@@ -41,6 +41,7 @@ module.exports = {
     "jsx-a11y/heading-has-content": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": "off",
     "react/jsx-sort-props": [
       "error",
       {
