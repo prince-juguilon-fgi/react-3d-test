@@ -38,59 +38,19 @@ export const Overlay = () => {
   const isOpen = useStore((state) => state.open);
 
   return (
-    <>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <a
-          href="https://pmnd.rs/"
-          style={{
-            position: "absolute",
-            bottom: 40,
-            left: 40,
-            fontSize: "13px",
-          }}
-        >
-          PMND.RS
-          <br />
-          DEV COLLECTIVE
-        </a>
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            right: 40,
-            fontSize: "13px",
-          }}
-        >
-          02/02/2023
-        </div>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: 40,
-          left: 40,
-          width: 30,
-          backgroundColor: "blue",
-        }}
-      />
-      <div className="info">
-        <h1>36</h1>
+    <div className="pointer-events-none absolute inset-0 z-10">
+      <div className="mx-auto grid h-full w-1/2 place-items-center">
         <List open={isOpen}>
-          <h3>NIKE AIR</h3>
-          <h3>“ZOOM”</h3>
-          <h3>
-            <span className="accent">PEGASUS</span>
+          <h1 className="text-6xl uppercase">36</h1>
+          <h3 className="text-8xl font-bold">NIKE AIR</h3>
+          <h3 className="text-8xl font-bold">“ZOOM”</h3>
+          <h3 className="text-8xl font-bold">
+            <span className="text-stroke-3 text-transparent">PEGASUS</span>
           </h3>
-          <h4>Running Shoes</h4>
-          <p className="price">$98.97</p>
+          <h4 className="mt-4">Running Shoes</h4>
+          <p className="my-2 w-min rounded-md bg-black px-4 py-2 text-white">
+            $98.97
+          </p>
           <p>
             Year after year Pegasus has proven itself on the feet of runners
             everywhere. Now our most trusted style returns with new innovations
@@ -99,6 +59,6 @@ export const Overlay = () => {
           </p>
         </List>
       </div>
-    </>
+    </div>
   );
 };

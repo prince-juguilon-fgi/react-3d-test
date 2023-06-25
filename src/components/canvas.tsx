@@ -11,12 +11,19 @@ import {
 import { easing } from "maath";
 import { useStore } from "./store";
 
+const shoeGlbPath = "/shoe.glb";
+
 export const CanvasPage = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  /* <div className="relative h-screen w-full" id="root" ref={ref}> */
+  /* </div> */
   return (
     <Canvas
       camera={{ position: [0, 0, 4], fov: 40 }}
       eventPrefix="client"
-      eventSource={document.getElementById("root")}
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      eventSource={ref.current!}
     >
       <ambientLight intensity={0.7} />
       <spotLight
@@ -75,9 +82,11 @@ function Selector({ children }: { children: ReactNode }) {
         <circleGeometry args={[1, 64, 64]} />
         <MeshTransmissionMaterial
           anisotropy={1}
+          distortionScale={0}
           resolution={512}
           roughness={0.4}
           samples={16}
+          temporalDistortion={0}
           thickness={0.1}
           toneMapped={true}
         />
@@ -105,7 +114,8 @@ Title: Nike Air Zoom Pegasus 36
 
 function Shoe(props: any) {
   const ref = useRef<any>(null);
-  const { nodes, materials } = useGLTF("/shoe.glb");
+  const shoe = useGLTF(shoeGlbPath);
+
   useFrame((state) => {
     if (!ref.current) return;
 
@@ -117,33 +127,14 @@ function Shoe(props: any) {
     );
     ref.current.position.y = (0.5 + Math.cos(t / 2)) / 7;
   });
+
   return (
     <group ref={ref}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.defaultMaterial.geometry}
-        material={materials.NikeShoe}
-        {...props}
-      />
+      <mesh castShadow receiveShadow {...props}>
+        <primitive object={shoe.scene} />
+      </mesh>
     </group>
   );
 }
 
-useGLTF.preload("/shoe.glb");
-
-/**/
-/* import { Canvas } from "@react-three/fiber"; */
-/**/
-/* export const CanvasPage = () => { */
-/*   return ( */
-/*     <Canvas> */
-/*       <ambientLight intensity={0.1} /> */
-/*       <directionalLight position={[0, 0, 5]} color="red" /> */
-/*       <mesh> */
-/*         <boxGeometry /> */
-/*         <meshStandardMaterial /> */
-/*       </mesh> */
-/*     </Canvas> */
-/*   ); */
-/* }; */
+useGLTF.preload(shoeGlbPath);

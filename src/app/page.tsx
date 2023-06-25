@@ -3,9 +3,9 @@ import { Overlay } from "@/components/overlay";
 
 export default function Home() {
   return (
-    <div className="relative h-screen w-full" id="root">
+    <>
+      <Overlay />
       <CanvasPage />
-      {/* <Overlay /> */}
-    </div>
+    </>
   );
 }

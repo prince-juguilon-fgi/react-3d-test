@@ -75,4 +75,14 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.text-stroke-3 {
+  -webkit-text-stroke: 1px black;
 }
