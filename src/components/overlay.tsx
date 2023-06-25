@@ -42,20 +42,21 @@ export const Overlay = () => {
       <div className="mx-auto grid h-full w-1/2 place-items-center">
         <List open={isOpen}>
           <h1 className="text-6xl uppercase">36</h1>
-          <h3 className="text-8xl font-bold">NIKE AIR</h3>
-          <h3 className="text-8xl font-bold">“ZOOM”</h3>
-          <h3 className="text-8xl font-bold">
-            <span className="text-stroke-3 text-transparent">PEGASUS</span>
+          <h3 className="text-8xl font-bold">TECHONOGYM</h3>
+          <h3 className="text-8xl font-bold">“RUN”</h3>
+          <h3 className="text-7xl font-bold">
+            <span className="text-stroke-3 text-transparent">
+              Run. Push. More.
+            </span>
           </h3>
-          <h4 className="mt-4">Running Shoes</h4>
+          <h4 className="mt-4">Treadmills</h4>
           <p className="my-2 w-min rounded-md bg-black px-4 py-2 text-white">
-            $98.97
+            $10,850
           </p>
           <p>
-            Year after year Pegasus has proven itself on the feet of runners
-            everywhere. Now our most trusted style returns with new innovations
-            that make it more itself than ever. Meet the reliable, comfortable,
-            always ready-to-run Nike Air Zoom Pegasus.
+            High intensity is the name of the game: run to your fastest, push to
+            your strongest, and top off your workout with more exercises off the
+            treadmill, all guided from the trainer on screen.
           </p>
         </List>
       </div>
